@@ -22,11 +22,11 @@ export function addNote() {
   return {
     type: ActionTypes.ADD_NOTE,
     note: {
-      id: shortid.generate(),
-      userId: shortid.generate(),
-      createTime: createTime.getTime().toString(),
+      // id: shortid.generate(),
       header: createTime.toDateString(),
-      body: ''
+      body: '',
+      createdTime: createTime.getTime().toString(),
+      // user: shortid.generate()
     }
   }
 }

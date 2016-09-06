@@ -1,4 +1,7 @@
+
 var mongoose = require("mongoose");
+var crypto = require('crypto');
+
 var db = mongoose.connect('mongodb://127.0.0.1:27017/shortnote');
 
 db.connection.on("error", function (error) {
@@ -24,5 +27,5 @@ userSchema.method('hashPassword', function () {
   this.pass = sha1.digest('hex');
 });
 
-//  定义了一个新的模型，但是此模式还未和users集合有关联
-exports.User = mongoose.model('users', userSchema); //  与users集合关联
+//  与users集合关联
+exports.User = mongoose.model('users', userSchema);

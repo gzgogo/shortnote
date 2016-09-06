@@ -6,8 +6,11 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var session = require('express-session');
 
+var getUser = require('./lib/middleware/getUser');
+
 var routes = require('./routes/index');
-var users = require('./routes/users');
+var routes = require('./routes/register');
+var routes = require('./routes/login');
 
 var app = express();
 
@@ -20,19 +23,28 @@ app.engine( '.html', require( 'ejs' ).__express );
 //app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
 app.use(logger('dev'));
 app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cookieParser());
 app.use(session({
   secret: 'it is a shortnote secret key',
   resave: false,
   saveUninitialized: true,
-  // cookie: { maxAge: 60 * 60 * 1000 } //one hour
+  cookie: { maxAge: 7 * 24 * 60 * 60 * 1000 } //7天
   // cookie: { secure: true }
 }));
 app.use(express.static(path.join(__dirname, 'public')));
 
+app.use(getUser);
+
+app.route('/register')
+  .get(register.form)
+  .post(register.submit);
+app.route('/login')
+  .get(login.form)
+  .post(login.submit);
+app.get('/logout', login.logout);
+
 app.use('/', routes);
-app.use('/users', users);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

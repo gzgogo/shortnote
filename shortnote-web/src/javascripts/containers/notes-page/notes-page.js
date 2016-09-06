@@ -75,11 +75,11 @@ class App extends Component {
 App.propTypes = {
   loading: PropTypes.bool,
   notes: PropTypes.arrayOf(PropTypes.shape({
-    id: PropTypes.string,
-    userId: PropTypes.string,
-    createTime: PropTypes.string,
+    // id: PropTypes.string,
+    // user: PropTypes.string,
+    createdTime: PropTypes.string,
     header: PropTypes.string,
-    body: PropTypes.string,
+    body: PropTypes.string
   }))
 }
 
