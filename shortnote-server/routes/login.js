@@ -1,5 +1,6 @@
 var User = require('../models/user');
 var crypto = require('crypto');
+var ERRORS = require('../utils/errors');
 
 exports.form = function (req, res) {
   res.render('login');
@@ -23,11 +24,11 @@ exports.submit = function (req, res, next) {
         res.redirect('/notes');
       }
       else {
-        res.send({errCode: 3, errMsg: '密码错误'});
+        res.send(ERRORS.PASSWORD_WRONG);
       }
     }
     else {
-      res.send({errCode: 2, errMsg: '邮箱未注册'});
+      res.send(ERRORS.EMAIL_UNREGISTERED);
     }
   });
 };

@@ -6,11 +6,14 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var session = require('express-session');
 
+//middlewares
 var getUser = require('./lib/middleware/getUser');
 
+//routes
 var routes = require('./routes/index');
-var routes = require('./routes/register');
-var routes = require('./routes/login');
+var register = require('./routes/register');
+var login = require('./routes/login');
+var notes = require('./routes/notes');
 
 var app = express();
 
@@ -39,11 +42,13 @@ app.use(getUser);
 app.route('/register')
   .get(register.form)
   .post(register.submit);
+
 app.route('/login')
   .get(login.form)
   .post(login.submit);
 app.get('/logout', login.logout);
 
+app.use('/notes', notes);
 app.use('/', routes);
 
 // catch 404 and forward to error handler

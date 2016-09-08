@@ -22,7 +22,7 @@ exports.submit = function (req, res, next) {
         pass: data.pass
       });
 
-      //web页面用固定salt加盐
+      //web页面用固定salt加盐  
       user.hashPassword();
 
       user.save(user, function (err, doc) {

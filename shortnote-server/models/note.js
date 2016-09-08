@@ -12,8 +12,8 @@ db.connection.on("open", function () {
 var noteSchema = new mongoose.Schema({
   header: String,
   content: String,
-  createdTime: String,
-  userId: String
+  createdTime: Number,
+  // userId: String
 });
 
 //  与users集合关联
