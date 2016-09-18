@@ -50,24 +50,21 @@ class register extends React.Component {
   }
 
   handleRegister() {
-    httpUtil.register();
     if (this.checkValidity()) {
-
       var email = this.refs.email.value;
       var password = this.refs.password.value;
 
       var sha1 = crypto.createHash('sha1');
       sha1.update(password).update('f4b40411e28a4942a2d51da213a5480c');
-
       password = sha1.digest('hex');
 
       var success = function () {
-
       }.bind(this);
 
       var fail = function (msg) {
         this.setState({errorMsg: msg});
       }.bind(this);
+
       httpUtil.register(email, password, success, fail);
     }
   }
@@ -93,8 +90,8 @@ class register extends React.Component {
     else if (!/\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*/.test(email)) {
       this.setState({errorMsg: "邮箱格式错误"});
     }
-    else if (password.replace(/(^\s*)|(\s*$)/g, "").length < 8) {
-      this.setState({errorMsg: "密码至少为8位"});
+    else if (password.replace(/(^\s*)|(\s*$)/g, "").length < 6) {
+      this.setState({errorMsg: "密码至少为6位"});
     }
     else if (confirmPassword.replace(/(^\s*)|(\s*$)/g, "").length == 0) {
       this.setState({errorMsg: "请再次输入密码进行确认"});

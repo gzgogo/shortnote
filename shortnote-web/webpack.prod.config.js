@@ -50,7 +50,8 @@ var config = {
     loaders: [
       {
         test: /\.jsx?$/,
-        loader: 'babel'
+        loader: 'babel',
+        include: [ path.resolve(AppPaths.src, 'javascripts') ]
       },
       {
         test: /\.css$/,

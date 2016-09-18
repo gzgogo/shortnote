@@ -45,6 +45,30 @@ const httpUtil = {
       url: requestRoot + '/register',
       type: 'post',
       data: {
+        user: {
+          email: email,
+          password: password
+        }
+      },
+      success: data => {
+        if (data.errCode === 0) {
+          typeof successCallback === 'function' && successCallback(data);
+        }
+        else {
+          typeof failCallback === 'function' && failCallback(data.errMsg || '注册失败，服务器错误');
+        }
+      },
+      error: (xhr, err, ex) => {
+        typeof failCallback === 'function' && failCallback('注册失败，请检查您的网络连接');
+      }
+    })
+  },
+
+  login(email, password, successCallback, failCallback) {
+    $.ajax({
+      url: requestRoot + '/login',
+      type: 'post',
+      data: {
         email: email,
         password: password
       },
@@ -53,11 +77,11 @@ const httpUtil = {
           typeof successCallback === 'function' && successCallback(data);
         }
         else {
-          typeof failCallback === 'function' && failCallback(data.errMsg || '同步失败，请检查您的网络连接');
+          typeof failCallback === 'function' && failCallback(data.errMsg || '登录失败，服务器错误');
         }
       },
       error: (xhr, err, ex) => {
-        typeof failCallback === 'function' && failCallback('同步失败，请检查您的网络连接');
+        typeof failCallback === 'function' && failCallback('登录失败，请检查您的网络连接');
       }
     })
   }
