@@ -25,6 +25,7 @@ const httpUtil = {
     $.ajax({
       'url': requestRoot + '/notes',
       'type': 'post',
+      'data': notes,
       'success': (data) => {
         if (data.errCode === 0) {
           typeof successCallback === 'function' && successCallback(data);
@@ -37,6 +38,28 @@ const httpUtil = {
         typeof failCallback === 'function' && failCallback('同步失败，请检查您的网络连接');
       }
     });
+  },
+
+  register(email, password, successCallback, failCallback) {
+    $.ajax({
+      url: requestRoot + '/register',
+      type: 'post',
+      data: {
+        email: email,
+        password: password
+      },
+      success: data => {
+        if (data.errCode === 0) {
+          typeof successCallback === 'function' && successCallback(data);
+        }
+        else {
+          typeof failCallback === 'function' && failCallback(data.errMsg || '同步失败，请检查您的网络连接');
+        }
+      },
+      error: (xhr, err, ex) => {
+        typeof failCallback === 'function' && failCallback('同步失败，请检查您的网络连接');
+      }
+    })
   }
 };
 

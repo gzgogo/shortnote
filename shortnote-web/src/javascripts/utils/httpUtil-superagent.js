@@ -36,6 +36,16 @@ const httpUtil = {
         typeof failCallback === 'function' && failCallback('同步失败，请稍后再试');
       });
   },
+  
+  register(email, password) {
+    var salt = crypto.randomBytes(16).toString('hex');
+    console.log('salt: ' + salt);
+
+    // var sha1 = crypto.createHash('sha1');
+    // sha1.update(user.pass).update(user.salt);
+    //
+    // user.pass = sha1.digest('hex');
+  }
 };
 
 export default httpUtil;
