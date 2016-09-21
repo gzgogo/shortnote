@@ -18,14 +18,23 @@ var userSchema = new mongoose.Schema({
   salt: String
 });
 
-userSchema.method('hashPassword', function () {
+//userSchema.method('hashPassword', function () {
+//  this.salt = crypto.randomBytes(16).toString('hex');
+//
+//  var sha1 = crypto.createHash('sha1');
+//  sha1.update(this.pass).update(this.salt);
+//
+//  this.pass = sha1.digest('hex');
+//});
+
+userSchema.methods.hashPassword = function () {
   this.salt = crypto.randomBytes(16).toString('hex');
 
   var sha1 = crypto.createHash('sha1');
   sha1.update(this.pass).update(this.salt);
 
   this.pass = sha1.digest('hex');
-});
+};
 
 //  与users集合关联
 exports.User = mongoose.model('users', userSchema);
