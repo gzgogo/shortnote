@@ -19,7 +19,7 @@ exports.submit = function (req, res, next) {
     else {
       user = new User({
         email: data.email,
-        pass: data.pass
+        pass: data.password
       });
 
       //web页面用固定salt加盐  

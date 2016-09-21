@@ -37,4 +37,4 @@ userSchema.methods.hashPassword = function () {
 };
 
 //  与users集合关联
-exports.User = mongoose.model('users', userSchema);
+module.exports = db.model('users', userSchema);

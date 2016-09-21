@@ -17,4 +17,4 @@ var noteSchema = new mongoose.Schema({
 });
 
 //  与users集合关联
-exports.Note = mongoose.model('notes', noteSchema);
+module.exports = mongoose.model('notes', noteSchema);
