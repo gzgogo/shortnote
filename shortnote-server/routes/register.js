@@ -17,19 +17,19 @@ exports.submit = function (req, res, next) {
       res.send({errCode: 1, errMsg: '该邮箱已注册，请更换邮箱'});
     }
     else {
-      user = new User({
+      var newUser = new User({
         email: data.email,
-        pass: data.password
+        password: data.password
       });
 
-      //web页面用固定salt加盐  
-      user.hashPassword();
+      //web页面用固定salt加盐
+      newUser.hashPassword();
 
-      user.save(user, function (err, doc) {
+      newUser.save(function (err, doc) {
         if (err) {
           return next(err);
         }
-        
+
         req.session.uid = doc._id;
         res.redirect('/notes');
       })

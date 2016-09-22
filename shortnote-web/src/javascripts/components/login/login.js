@@ -17,10 +17,13 @@ class login extends React.Component {
     return (
       <div className="login">
         <div className="register">
-          <div className="header">
-            <div className="header1"></div>
-            <div className="header2"></div>
-          </div>
+          {
+            <div className="header">
+              <div className="header1"></div>
+              <div className="header2"></div>
+            </div>
+          }
+
           <div className="body">
             <div className="field">
               <div className="error">

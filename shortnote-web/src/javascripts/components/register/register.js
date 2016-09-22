@@ -16,10 +16,13 @@ class register extends React.Component {
   render() {
     return (
       <div className="register">
-        <div className="header">
-          <div className="header1"></div>
-          <div className="header2"></div>
-        </div>
+        {
+          <div className="header">
+            <div className="header1"></div>
+            <div className="header2"></div>
+          </div>
+        }
+
         <div className="body">
 
           <div className="field">

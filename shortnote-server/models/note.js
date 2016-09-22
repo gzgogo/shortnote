@@ -1,5 +1,6 @@
-
 var mongoose = require("mongoose");
+
+mongoose.Promise = global.Promise;
 var db = mongoose.connect('mongodb://127.0.0.1:27017/shortnote');
 
 db.connection.on("error", function (error) {

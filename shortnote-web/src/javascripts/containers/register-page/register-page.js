@@ -7,10 +7,13 @@ class RegisterPage extends React.Component {
   render() {
     return (
       <div className="register-page">
-        <div className="page-header">
-          <p className="title">极速笔记</p>
-          <p className="sub-title">注册</p>
-        </div>
+        {
+          //<div className="page-header">
+          //  <p className="title">极速笔记</p>
+          //  <p className="sub-title">注册</p>
+          //</div>
+        }
+
         <Register></Register>
       </div>
     );
