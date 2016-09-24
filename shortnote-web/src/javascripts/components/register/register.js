@@ -62,6 +62,7 @@ class register extends React.Component {
       password = sha1.digest('hex');
 
       var success = function () {
+        window.location = '/notes';
       }.bind(this);
 
       var fail = function (msg) {

@@ -1,5 +1,6 @@
 
 var ERRORS = {
+  SUCCESS: {errCode: 0, errMsg: ""},
   EMAIL_USED: {errCode: 1, errMsg: '该邮箱已注册，请更换邮箱'},
   EMAIL_UNREGISTERED: {errCode: 2, errMsg: '邮箱未注册'},
   PASSWORD_WRONG: {errCode: 3, errMsg: '密码错误'},

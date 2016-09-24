@@ -45,7 +45,7 @@ router.post('/update', function (req, res, next) {
         res.send(ERRORS.NOTES_UPDATE_FAILED);
       }
       else {
-        res.send({errCode: 0, errMsg: ""});
+        res.send(ERRORS.SUCCESS);
       }
     })
   });

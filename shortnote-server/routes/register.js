@@ -1,4 +1,5 @@
 var User = require('../models/user');
+var ERRORS = require('../utils/errors');
 
 exports.form = function (req, res) {
   res.render('register');
@@ -30,8 +31,8 @@ exports.submit = function (req, res, next) {
           return next(err);
         }
 
-        req.session.uid = doc._id;
-        res.redirect('/notes');
+        req.session.uid = doc._id.toString();
+        res.send(ERRORS.SUCCESS);
       })
     }
   });
