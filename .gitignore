@@ -4,4 +4,4 @@ shortnote-web/.idea
 node_modules
 shortnote-server/node_modules
 shortnote-web/node_modules
-dst
+shortnote-web/dst
