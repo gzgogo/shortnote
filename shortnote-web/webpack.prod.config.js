@@ -36,7 +36,9 @@ var AppPages = [
 var config = {
   entry: {
     notes: path.resolve(AppPaths.src, 'javascripts/notes.js'),
-    register: path.resolve(AppPaths.src, 'javascripts/register.js')
+    register: path.resolve(AppPaths.src, 'javascripts/register.js'),
+    login: path.resolve(AppPaths.src, 'javascripts/login.js'),
+    index: path.resolve(AppPaths.src, 'javascripts/index.js')
   },
 
   output: {

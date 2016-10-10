@@ -22,10 +22,10 @@ export function addNote() {
   return {
     type: ActionTypes.ADD_NOTE,
     note: {
-      // id: shortid.generate(),
+      _id: shortid.generate(),
       header: createTime.toDateString(),
       body: '',
-      createdTime: createTime.getTime().toString(),
+      createdTime: createTime.getTime(),
       // user: shortid.generate()
     }
   }
@@ -55,7 +55,7 @@ export function setLoading(loading) {
 
 export function hintMsg(msg) {
   return {
-    type: ActionTypes.TOAST,
+    type: ActionTypes.HINT,
     msg
   }
 }

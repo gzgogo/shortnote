@@ -44,7 +44,7 @@ class App extends Component {
 
     var successCallback = function (notes) {
       dispatch(setLoading(false));
-      dispatch(receiveNotes(notes.items));
+      dispatch(receiveNotes(notes));
 
       setTimeout(this.updateNotes.bind(this), 5000);
     }.bind(this);
@@ -77,7 +77,7 @@ App.propTypes = {
   notes: PropTypes.arrayOf(PropTypes.shape({
     // id: PropTypes.string,
     // user: PropTypes.string,
-    createdTime: PropTypes.string,
+    createdTime: PropTypes.number,
     header: PropTypes.string,
     body: PropTypes.string
   }))

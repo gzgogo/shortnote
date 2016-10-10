@@ -4,11 +4,11 @@ const requestRoot = '';
 const httpUtil = {
   fetchNotes(successCallback, failCallback) {
     $.ajax({
-      'url': requestRoot + '/notes',
+      'url': requestRoot + '/notes/fetch',
       'type': 'get',
       'success': (data) => {
         if (data.errCode === 0) {
-          typeof successCallback === 'function' && successCallback(data);
+          typeof successCallback === 'function' && successCallback(data.notes);
         }
         else {
           typeof failCallback === 'function' && failCallback(data.errMsg || '加载失败，请检查您的网络连接');
@@ -23,9 +23,11 @@ const httpUtil = {
 
   updateNotes(notes, successCallback, failCallback) {
     $.ajax({
-      'url': requestRoot + '/notes',
-      'type': 'post',
-      'data': notes,
+      url: requestRoot + '/notes/update',
+      type: 'post',
+      data: {
+        notes: notes
+      },
       'success': (data) => {
         if (data.errCode === 0) {
           typeof successCallback === 'function' && successCallback(data);
@@ -69,8 +71,10 @@ const httpUtil = {
       url: requestRoot + '/login',
       type: 'post',
       data: {
-        email: email,
-        password: password
+        user: {
+          email: email,
+          password: password
+        }
       },
       success: data => {
         if (data.errCode === 0) {

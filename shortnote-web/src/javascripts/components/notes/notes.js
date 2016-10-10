@@ -6,10 +6,10 @@ import Note from '../note/note';
 
 class notes extends React.Component {
   render() {
-    const { notes } = this.props;
+    const { notes, handleInputChange } = this.props;
 
     var noteNodes = notes.map(function (note, index) {
-      return <Note note={note} key={note.id}/>;
+      return <Note note={note} key={note._id} />;
     });
 
     return (
@@ -23,6 +23,8 @@ class notes extends React.Component {
       </div>
     );
   }
+
+  handleInputChange
 }
 
 export default notes;

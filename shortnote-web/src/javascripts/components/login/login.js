@@ -39,6 +39,9 @@ class login extends React.Component {
             <div className="field">
               <input type="button" value="登录" onClick={this.handleLogin.bind(this)}/>
             </div>
+            <div className="field-register">
+              <a href="/register">创建新用户</a>
+            </div>
           </div>
         </div>
       </div>
@@ -55,6 +58,7 @@ class login extends React.Component {
       password = sha1.digest('hex');
 
       var success = function () {
+        window.location = '/notes';
       }.bind(this);
 
       var fail = function (msg) {

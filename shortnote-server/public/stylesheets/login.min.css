@@ -39,11 +39,11 @@ horizontal-vertical-center {
   -o-transform: translate(-50%, -50%);
   transform: translate(-50%, -50%);
 }
-.register-page {
+.login-page {
   height: 100%;
   background-color: #7fc7af;
 }
-.register-page .page-header {
+.login-page .page-header {
   text-align: center;
   position: absolute;
   left: 50%;
@@ -54,20 +54,20 @@ horizontal-vertical-center {
   -o-transform: translateX(-50%);
   transform: translateX(-50%);
 }
-.register-page p {
+.login-page p {
   color: #40877c;
   margin: 0px;
 }
-.register-page .title {
+.login-page .title {
   font-size: 48px;
   letter-spacing: 6px;
 }
-.register-page .sub-title {
+.login-page .sub-title {
   font-size: 32px;
   margin-top: 30px;
   letter-spacing: 4px;
 }
-.register {
+.login {
   width: 400px;
   background-color: #f3f4e5;
   border-radius: 10px;
@@ -80,16 +80,16 @@ horizontal-vertical-center {
   -o-transform: translate(-50%, -50%);
   transform: translate(-50%, -50%);
 }
-.register .header {
+.login .header {
   height: 40px;
 }
-.register .header .header1 {
+.login .header .header1 {
   height: 40px;
   border-top-left-radius: 10px;
   border-top-right-radius: 10px;
   background-color: #40877c;
 }
-.register .header .header2 {
+.login .header .header2 {
   width: 0px;
   height: 0px;
   position: relative;
@@ -98,26 +98,34 @@ horizontal-vertical-center {
   border-style: solid;
   border-color: #40877c transparent transparent #40877c;
 }
-.register .body {
+.login .body {
   padding-top: 75px;
   padding-bottom: 10px;
 }
-.register .body .field {
+.login .body .field-register {
+  text-align: center;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+.login .body .field-register a {
+  color: #40877c;
+  font-size: 14px;
+}
+.login .body .field {
   text-align: center;
   margin-bottom: 15px;
 }
-.register .body .field:last-child {
+.login .body .field:last-child {
   margin-top: 36px;
 }
-.register .body .field .error {
+.login .body .field .error {
   color: #f00;
 }
-.register .body .field input {
+.login .body .field input {
   width: 80%;
   height: 36px;
 }
-.register .body .field input[type=text],
-.register .body .field input[type=password] {
+.login .body .field input[type=text] {
   padding-left: 5px;
   background-color: #f3f4e5;
   border-width: 0px 0px 1px 0px;
@@ -125,27 +133,22 @@ horizontal-vertical-center {
   border-color: #b0b1a5;
   outline: none;
 }
-.register .body .field input[type=text]:focus,
-.register .body .field input[type=password]:focus {
+.login .body .field input[type=text]:focus {
   border-color: #40877c;
 }
-.register .body .field input[type=text]::-webkit-input-placeholder,
-.register .body .field input[type=password]::-webkit-input-placeholder {
+.login .body .field input[type=text]::-webkit-input-placeholder {
   font-size: 14px;
 }
-.register .body .field input[type=text]:-moz-placeholder,
-.register .body .field input[type=password]:-moz-placeholder {
+.login .body .field input[type=text]:-moz-placeholder {
   font-size: 14px;
 }
-.register .body .field input[type=text]::-moz-placeholder,
-.register .body .field input[type=password]::-moz-placeholder {
+.login .body .field input[type=text]::-moz-placeholder {
   font-size: 14px;
 }
-.register .body .field input[type=text]:-ms-input-placeholder,
-.register .body .field input[type=password]:-ms-input-placeholder {
+.login .body .field input[type=text]:-ms-input-placeholder {
   font-size: 14px;
 }
-.register .body .field input[type=button] {
+.login .body .field input[type=button] {
   height: 38px;
   background-color: #40877c;
   color: #fff;

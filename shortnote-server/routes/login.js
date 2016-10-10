@@ -16,12 +16,13 @@ exports.submit = function (req, res, next) {
 
     if (user) {
       var sha1 = crypto.createHash('sha1');
-      sha1.update(data.pass).update(user.salt);
+      sha1.update(data.password).update(user.salt);
 
       var hash = sha1.digest('hex');
-      if (hash === user.pass) {
-        req.session.uid = user._id;
-        res.redirect('/notes');
+      if (hash === user.password) {
+        req.session.uid = user._id.toString();
+        //res.redirect('/notes');
+        res.send(ERRORS.SUCCESS);
       }
       else {
         res.send(ERRORS.PASSWORD_WRONG);
