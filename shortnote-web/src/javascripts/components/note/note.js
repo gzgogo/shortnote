@@ -6,6 +6,7 @@ class Note extends React.Component {
   render() {
     return (
       <div className="note">
+        <div className="btn-close"></div>
         <input className="note-header" type="text" defaultValue={this.props.note.header}/>
         <textarea className="note-body"
                   name="content"
@@ -21,9 +22,14 @@ class Note extends React.Component {
     );
   }
 
-  handleInputChange() {
+  handleInputChange(note) {
     var body = this.refs.body.value;
-    console.log(body);
+    note.body = body;
+
+    var onUpdateNote = this.props.onUpdateNote;
+    if (typeof onUpdateNote === 'function') {
+      onUpdateNote(note);
+    }
   }
 }
 

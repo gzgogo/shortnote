@@ -15,3 +15,4 @@
   -moz-osx-font-smoothing: grayscale;
 }
 .icon-add:before { content: "\e600"; }
+.icon-close:before { content: "\e601"; }

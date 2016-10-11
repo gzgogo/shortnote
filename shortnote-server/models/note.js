@@ -11,6 +11,7 @@ db.connection.on("open", function () {
 });
 
 var noteSchema = new mongoose.Schema({
+  _id: String,
   header: String,
   content: String,
   createdTime: Number,

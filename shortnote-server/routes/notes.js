@@ -36,9 +36,11 @@ router.post('/update', function (req, res, next) {
       return;
     }
 
-    notes.forEach(function (note, index) {
-      note.userId = req.session.uid;
-    });
+    if (Array.isArray(notes)) {
+      notes.forEach(function (note, index) {
+        note.userId = req.session.uid;
+      });
+    }
 
     Note.collection.insert(notes, function (err) {
       if(err) {

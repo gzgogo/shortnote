@@ -9,11 +9,11 @@ class notes extends React.Component {
     const { notes, handleInputChange } = this.props;
 
     var noteNodes = notes.map(function (note, index) {
-      return <Note note={note} key={note._id} />;
-    });
+      return <Note note={note} key={note._id} onUpdateNote={(n)=>this.onUpdateNote(event, n)}/>;
+    }.bind(this));
 
     return (
-      <div className="notes">
+      <div className="notes" >
         {
           <ReactCSSTransitionGroup transitionName="fade" transitionEnterTimeout={500} transitionLeaveTimeout={300}>
             { noteNodes }
@@ -24,7 +24,9 @@ class notes extends React.Component {
     );
   }
 
-  handleInputChange
+  onUpdateNote(e, note) {
+    console.log(note);
+  }
 }
 
 export default notes;
