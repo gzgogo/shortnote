@@ -6,7 +6,7 @@ class Note extends React.Component {
   render() {
     return (
       <div className="note">
-        <div className="btn-close"></div>
+        <div className="btn-close"> <i className="icon iconfont icon-close" onClick={e=>this.onAddNote()}></i></div>
         <input className="note-header" type="text" defaultValue={this.props.note.header}/>
         <textarea className="note-body"
                   name="content"
